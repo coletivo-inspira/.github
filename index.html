@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Coletivo Inspira: arte, cultura, tecnologia e ecoturismo conectando pessoas e projetos em Bonito-MS." />
+  <title>Coletivo Inspira | inspira.dev.br</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
+  <link href="Fontes/Palm Beach.ttf" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-inspira-mist text-inspira-night font-body">
+  <div class="bg-pattern"></div>
+
+  <header class="fixed top-0 left-0 right-0 z-50 border-b border-white/20 backdrop-blur-md bg-inspira-night/80">
+    <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-20 items-center justify-between">
+        <a href="#inicio" class="tracking-wide text-xl sm:text-2xl font-display text-white">COLETIVO INSPIRA</a>
+
+        <button
+          id="menu-toggle"
+          class="md:hidden inline-flex items-center justify-center rounded-lg border border-white/30 p-2 text-white"
+          aria-label="Abrir menu"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Abrir navegação</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5m-16.5 5.25h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+
+        <ul id="desktop-menu" class="hidden md:flex items-center gap-8 text-sm font-medium text-white/95">
+          <li><a href="#inicio" class="nav-link">Início</a></li>
+          <li><a href="#sobre" class="nav-link">Sobre</a></li>
+
+          <li class="relative group">
+            <button class="inline-flex items-center gap-1 nav-link" aria-expanded="false">
+              Projetos
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+              </svg>
+            </button>
+            <ul class="dropdown-menu absolute right-0 mt-3 w-52 rounded-xl border border-white/30 bg-white text-inspira-night shadow-xl p-2 opacity-0 invisible translate-y-2">
+              <li><a href="#projetos" class="dropdown-item" data-filter="Festas">Festas</a></li>
+              <li><a href="#projetos" class="dropdown-item" data-filter="Saúde">Saúde</a></li>
+              <li><a href="#projetos" class="dropdown-item" data-filter="Arte">Arte</a></li>
+              <li class="border-t border-slate-200 mt-2 pt-2"><a href="#projetos" class="dropdown-item" data-filter="Todos">Ver Todos</a></li>
+            </ul>
+          </li>
+
+          <li><a href="#comunidade" class="nav-link">Comunidade</a></li>
+        </ul>
+      </div>
+
+      <div id="mobile-menu" class="md:hidden hidden border-t border-white/20 pb-4 pt-3 text-white/95">
+        <a href="#inicio" class="mobile-link">Início</a>
+        <a href="#sobre" class="mobile-link">Sobre</a>
+
+        <details class="mobile-projects rounded-lg border border-white/20 mt-2">
+          <summary class="cursor-pointer list-none mobile-link !m-0 flex items-center justify-between px-3 py-2">
+            Projetos
+            <span class="text-xs text-white/70">Categorias</span>
+          </summary>
+          <div class="px-3 pb-3 space-y-1">
+            <a href="#projetos" class="mobile-sub-link" data-filter="Festas">Festas</a>
+            <a href="#projetos" class="mobile-sub-link" data-filter="Saúde">Saúde</a>
+            <a href="#projetos" class="mobile-sub-link" data-filter="Arte">Arte</a>
+            <a href="#projetos" class="mobile-sub-link" data-filter="Todos">Ver Todos</a>
+          </div>
+        </details>
+
+        <a href="#comunidade" class="mobile-link mt-2">Comunidade</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="relative min-h-screen flex items-center overflow-hidden pt-28">
+      <div class="hero-glow hero-glow-a"></div>
+      <div class="hero-glow hero-glow-b"></div>
+
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 w-full">
+        <div class="max-w-3xl reveal-on-load">
+          <p class="inline-flex items-center rounded-full border border-inspira-river/40 bg-white/70 px-4 py-1 text-sm font-medium text-inspira-forest">
+            Bonito-MS | Arte, Ecoturismo e Inovação
+          </p>
+          <h1 class="mt-6 font-display text-4xl sm:text-5xl lg:text-6xl leading-tight text-inspira-night">
+            Onde a cultura encontra a tecnologia
+            <span class="block text-inspira-burnt">e transforma territórios.</span>
+          </h1>
+          <p class="mt-6 text-lg sm:text-xl text-inspira-night/80 leading-relaxed">
+            Como as correntezas do Rio Formoso, o Coletivo Inspira flui conectando pessoas, arte, natureza e desenvolvimento. Um movimento que respira com Bonito e pulsa para transformar.
+          </p>
+          <div class="mt-9 flex flex-wrap gap-4">
+            <a href="#projetos" class="btn-primary">Explorar Projetos</a>
+            <a href="#comunidade" class="btn-secondary">Ver Comunidade</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre" class="section-wrap">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
+          <div class="order-2 lg:order-1">
+            <h2 class="section-title">Nossa História</h2>
+            <p class="section-text">
+              "O que você faz com seus amigos quando estão a toa? Nós criamos o COLETIVO INSPIRA! Depois de alguns anos na estrada da vida, nós - @predo.baga e @felipeatene - melhores amigos desde a infância, voltamos pra cidade onde crescemos e decidimos criar um novo movimento. Na finalidade de trazer arte, cultura, desenvolvimento, diversão e um novo estilo de vida pra Capital do Ecoturismo, fizemos o nosso primeiro evento em Bonito e foi um sucesso! Agora estamos ainda mais fortes e determinados a fazer a diferença nessa terra de águas cristalinas e pretendemos seguir fortes, como as correntezas do Rio Formoso, rumo ao desenvolvimento cultural de Bonito-MS."
+            </p>
+          </div>
+          <div class="order-1 lg:order-2">
+            <div class="history-gallery">
+              <img src="image/image1.png" alt="Imagem inspiradora do coletivo" class="history-photo history-photo-main" loading="lazy" />
+              <div class="history-grid">
+                <img src="image/image2.png" alt="Ações culturais do coletivo" class="history-photo" loading="lazy" />
+                <img src="image/image3.png" alt="Comunidade em movimento" class="history-photo" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projetos" class="section-wrap section-soft">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <h2 class="section-title">Projetos e Movimentos</h2>
+            <p class="section-subtitle">Iniciativas que conectam festa, arte, sustentabilidade e território.</p>
+          </div>
+          <p id="project-filter-label" class="rounded-full border border-inspira-river/30 bg-white px-4 py-1 text-sm text-inspira-forest">
+            Exibindo: Todos
+          </p>
+        </div>
+
+        <div id="projects-grid" class="mt-8 grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
+          <article class="project-card" data-categories="Festas">
+            <div>
+              <p class="chip">Festas</p>
+              <h3 class="project-title">Carnaboia</h3>
+              <p class="project-text">Celebração que pulsa. Onde a música encontra corpos, e corpos encontram comunidade. Folia que transforma.</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-categories="Arte,Sustentabilidade">
+            <div>
+              <p class="chip">Arte/Sustentabilidade</p>
+              <h3 class="project-title">Desapego</h3>
+              <p class="project-text">Soltar para ressignificar. Criatividade que cria novos ciclos — de objetos, ideias e relacionamentos.</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-categories="Arte">
+            <div>
+              <p class="chip">Arte</p>
+              <h3 class="project-title">Guavira Photo</h3>
+              <p class="project-text">Luz que revela. A lente que captura território, faces e memórias em movimento puro.</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-categories="Festas">
+            <div>
+              <p class="chip">Festas | Carnaval BH</p>
+              <h3 class="project-title">Meu Bloquinho</h3>
+              <p class="project-text">Folia que conecta. Identidade e redes criativas que dançam juntas na energia de Belo Horizonte.</p>
+            </div>
+          </article>
+        </div>
+
+        <p id="project-empty-state" class="hidden mt-8 rounded-xl border border-dashed border-inspira-river/50 bg-white/60 p-5 text-inspira-night/80">
+          Ainda não há projetos visíveis para essa categoria. Novidades em breve.
+        </p>
+      </div>
+    </section>
+
+    <section id="comunidade" class="section-wrap">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <h2 class="section-title">Comunidade e Portfólios</h2>
+        <p class="section-subtitle max-w-3xl">
+          Talentos que formam a rede Inspira. Desenvolvedores, designers, criadores. Cada um com sua própria história publicada.
+        </p>
+
+        <div id="repo-status" class="mt-6 rounded-xl border border-inspira-river/30 bg-white p-4 text-inspira-night/85" role="status" aria-live="polite">
+          Carregando portfólios da comunidade...
+        </div>
+
+        <div id="repos-grid" class="mt-8 grid sm:grid-cols-2 xl:grid-cols-3 gap-6"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="modal-overlay" class="fixed inset-0 z-40 hidden bg-black/30 backdrop-blur-sm" aria-hidden="true"></div>
+  <div id="repo-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 overflow-y-auto">
+    <article class="relative bg-inspira-cream rounded-2xl shadow-2xl max-w-2xl w-full my-8" role="dialog" aria-labelledby="modal-title">
+      <button id="modal-close" class="absolute top-4 right-4 text-inspira-night/60 hover:text-inspira-night transition" aria-label="Fechar modal">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+      </button>
+      <div class="p-6 sm:p-8">
+        <div id="modal-content" class="space-y-4">
+          <div class="h-8 bg-inspira-river/10 rounded-lg animate-pulse"></div>
+          <div class="space-y-2"><div class="h-4 bg-inspira-river/10 rounded w-3/4 animate-pulse"></div><div class="h-4 bg-inspira-river/10 rounded w-2/3 animate-pulse"></div></div>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <footer class="mt-10 border-t border-inspira-river/20 bg-inspira-night text-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+      <p class="text-center font-display text-2xl sm:text-3xl tracking-wide text-inspira-mist">
+        AGRADECEMOS PELA PRESENÇA!
+      </p>
+
+      <div class="mt-7 flex justify-center items-center gap-5">
+        <a href="https://instagram.com/coletivo_inspira" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram do Coletivo Inspira">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm8.5 1.5h-8.5A4.25 4.25 0 0 0 3.5 7.75v8.5a4.25 4.25 0 0 0 4.25 4.25h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5a4.25 4.25 0 0 0-4.25-4.25Zm-4.25 3.75A4.75 4.75 0 1 1 7.25 12 4.75 4.75 0 0 1 12 7.25Zm0 1.5A3.25 3.25 0 1 0 15.25 12 3.25 3.25 0 0 0 12 8.75Zm4.9-2.12a1.1 1.1 0 1 1-1.1 1.1 1.1 1.1 0 0 1 1.1-1.1Z"/></svg>
+          Instagram
+        </a>
+
+        <a href="https://chat.whatsapp.com/LHMN8hm8a4ILdZGbatRv7G" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Comunidade no WhatsApp">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a9.9 9.9 0 0 0-8.61 14.77L2 22l5.37-1.39A10 10 0 1 0 12 2Zm0 18.25a8.2 8.2 0 0 1-4.17-1.13l-.3-.18-3.19.83.85-3.11-.2-.31A8.25 8.25 0 1 1 12 20.25Zm4.53-6.18c-.25-.13-1.49-.73-1.72-.82s-.4-.12-.57.12-.65.82-.8.99-.29.2-.54.07a6.63 6.63 0 0 1-1.95-1.2 7.28 7.28 0 0 1-1.35-1.67c-.14-.25 0-.38.11-.5s.25-.29.38-.43a1.74 1.74 0 0 0 .25-.42.47.47 0 0 0 0-.45c-.06-.12-.57-1.37-.78-1.88s-.41-.43-.57-.43h-.49a.94.94 0 0 0-.68.32 2.84 2.84 0 0 0-.88 2.1 4.91 4.91 0 0 0 1 2.58 11.2 11.2 0 0 0 4.31 3.79 14.52 14.52 0 0 0 1.44.53 3.48 3.48 0 0 0 1.6.1 2.61 2.61 0 0 0 1.71-1.2 2.1 2.1 0 0 0 .15-1.2c-.06-.1-.23-.16-.48-.28Z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
