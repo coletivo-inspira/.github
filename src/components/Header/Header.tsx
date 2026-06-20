@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 import { mainNavLinks, projectFilterLinks } from "@/data/navigation";
-import type { ProjectCategory } from "@/types/project";
+import type { ProjectFilter } from "@/types/project";
 import styles from "./Header.module.css";
 
 interface HeaderProps {
-  onProjectFilter?: (filter: ProjectCategory) => void;
+  onProjectFilter?: (filter: ProjectFilter) => void;
 }
 
 export function Header({ onProjectFilter }: HeaderProps) {
@@ -14,7 +14,7 @@ export function Header({ onProjectFilter }: HeaderProps) {
 
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
-  const handleProjectFilter = (filter: ProjectCategory) => {
+  const handleProjectFilter = (filter: ProjectFilter) => {
     onProjectFilter?.(filter);
     closeMobileMenu();
   };

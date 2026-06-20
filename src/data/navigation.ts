@@ -1,4 +1,4 @@
-import type { ProjectCategory } from "@/types/project";
+import type { ProjectFilter } from "@/types/project";
 
 export interface NavLink {
   label: string;
@@ -6,7 +6,7 @@ export interface NavLink {
 }
 
 export interface ProjectFilterLink extends NavLink {
-  filter: ProjectCategory;
+  filter: ProjectFilter;
 }
 
 export const mainNavLinks: NavLink[] = [
