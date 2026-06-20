@@ -6,6 +6,7 @@ import { Hero } from "@/components/Hero/Hero";
 import { ProjectsSection } from "@/components/Projects/ProjectsSection";
 import { SectionHistory } from "@/components/SectionHistory/SectionHistory";
 import { SectionCommunity } from "@/components/SectionCommunity/SectionCommunity";
+import { SectionBrandBook } from "@/components/SectionBrandBook/SectionBrandBook";
 import { Footer } from "@/components/Footer/Footer";
 import type { ProjectFilter } from "@/types/project";
 
@@ -17,6 +18,7 @@ export function HomePageClient() {
       <Header onProjectFilter={setSelectedProjectFilter} />
       <main>
         <Hero />
+        <SectionBrandBook />
         <SectionHistory />
         <ProjectsSection
           selectedFilter={selectedProjectFilter}

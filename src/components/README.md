@@ -21,6 +21,10 @@ Abaixo você encontra uma descrição minuciosa do que cada bloco constrói:
 - **Responsabilidade:** Seção "Sobre Nós" ("Nossa História").
 - **Detalhes Internos:** Um componente estático onde apresentamos a história dos fundadores, intercalando a narrativa com uma grade interativa de imagens dos eventos anteriores.
 
+### `SectionBrandBook/`
+- **Responsabilidade:** Seção com diretrizes da nova marca.
+- **Detalhes Internos:** Reúne orientações de identidade visual, tom de voz e padronização para guiar a repaginação do site.
+
 ### `Projects/`
 Aqui nós temos a maior interatividade de UI do site. Ele gerencia a filtragem da lista de iniciativas.
 - **`ProjectsSection.tsx`**: O container mestre que cuida da seção de Projetos. Ele renderiza os botões (chips) de filtro no topo e passa os dados para renderização.
