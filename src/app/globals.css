@@ -1,0 +1,124 @@
+:root {
+  --color-forest: #184e3b;
+  --color-river: #1d8a8a;
+  --color-earth: #b8762d;
+  --color-burnt: #d84315;
+  --color-cream: #f5f1e8;
+  --color-mist: #e7f6f2;
+  --color-night: #0f2a2a;
+  --color-white: #ffffff;
+
+  --font-display: "Fraunces", serif;
+  --font-brand: "Palm Beach", serif;
+  --font-body: "Space Grotesk", sans-serif;
+
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.2);
+
+  --duration-fast: 150ms;
+  --duration-base: 280ms;
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@font-face {
+  font-family: "Palm Beach";
+  src: url("/Fontes/Palm Beach.ttf") format("truetype");
+  font-display: fallback;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100%;
+  overflow-x: hidden;
+  color: var(--color-night);
+  background: linear-gradient(135deg, var(--color-mist) 0%, var(--color-cream) 100%);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+.bg-pattern {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(135deg, var(--color-mist) 0%, var(--color-cream) 100%);
+  background-attachment: fixed;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.migration-shell {
+  min-height: 100vh;
+  padding-top: 7rem;
+}
+
+.migration-placeholder {
+  width: min(100% - 2rem, 80rem);
+  margin: 0 auto;
+  padding: var(--spacing-3xl) 0;
+}
+
+.migration-placeholder h1 {
+  max-width: 48rem;
+  color: var(--color-night);
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 7vw, 4rem);
+  line-height: 1.1;
+}
+
+.migration-placeholder p {
+  max-width: 42rem;
+  margin-top: var(--spacing-lg);
+  color: rgba(15, 42, 42, 0.76);
+  font-size: 1.125rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
