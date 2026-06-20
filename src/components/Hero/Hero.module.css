@@ -66,45 +66,7 @@
   margin-top: var(--spacing-2xl);
 }
 
-.primaryButton,
-.secondaryButton {
-  display: inline-block;
-  padding: var(--spacing-md) var(--spacing-2xl);
-  border-radius: 0.75rem;
-  font-size: 1rem;
-  font-weight: 600;
-  text-align: center;
-  transition: background var(--duration-base) var(--ease-smooth),
-    box-shadow var(--duration-base) var(--ease-smooth),
-    transform var(--duration-base) var(--ease-smooth);
-}
 
-.primaryButton {
-  background: var(--color-burnt);
-  box-shadow: 0 4px 15px rgba(216, 67, 21, 0.3);
-  color: var(--color-white);
-}
-
-.primaryButton:hover {
-  box-shadow: 0 8px 20px rgba(216, 67, 21, 0.4);
-  transform: translateY(-2px);
-}
-
-.secondaryButton {
-  border: 2px solid var(--color-burnt);
-  background: rgba(255, 255, 255, 0.15);
-  color: var(--color-night);
-}
-
-.secondaryButton:hover {
-  background: var(--color-cream);
-}
-
-.primaryButton:focus-visible,
-.secondaryButton:focus-visible {
-  outline: 2px solid var(--color-burnt);
-  outline-offset: 2px;
-}
 
 .heroGlow {
   position: absolute;

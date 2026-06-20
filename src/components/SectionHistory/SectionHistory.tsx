@@ -1,12 +1,13 @@
+import Image from "next/image";
 import styles from "./SectionHistory.module.css";
 
 export function SectionHistory() {
   return (
-    <section id="sobre" className={styles.section}>
-      <div className={styles.container}>
+    <section id="historia" className={styles.section}>
+      <div className="section-container">
         <div className={styles.grid}>
           <div className={styles.content}>
-            <h2 className={styles.title}>Nossa História</h2>
+            <h2 className="section-title">Nossa História</h2>
             <p className={styles.text}>
               &quot;O que você faz com seus amigos quando estão a toa? Nós criamos o
               COLETIVO INSPIRA! Depois de alguns anos na estrada da vida, nós -

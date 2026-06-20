@@ -15,12 +15,12 @@ export function ProjectsSection({ selectedFilter, onFilterChange }: ProjectsSect
 
   return (
     <section id="projetos" className={styles.section}>
-      <div className={styles.container}>
+      <div className="section-container">
         <div className={styles.header}>
           <div>
-            <h2 className={styles.title}>Projetos e Movimentos</h2>
-            <p className={styles.subtitle}>
-              Iniciativas que conectam festa, arte, sustentabilidade e território.
+            <h2 className="section-title">Iniciativas e Projetos</h2>
+            <p className="section-subtitle">
+              Conheça as ações do Coletivo Inspira. Da tecnologia à preservação ambiental.
             </p>
           </div>
 
@@ -79,7 +79,7 @@ function ProjectCard({ project }: ProjectCardProps) {
   return (
     <article className={styles.card}>
       <div>
-        <p className={styles.chip}>{project.label}</p>
+        <p className={'chip ' + styles.cardChip}>{project.label}</p>
         <h3 className={styles.cardTitle}>{project.title}</h3>
         <p className={styles.cardText}>{project.description}</p>
       </div>

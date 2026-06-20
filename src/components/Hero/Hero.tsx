@@ -19,11 +19,11 @@ export function Hero() {
             Bonito e pulsa para transformar.
           </p>
           <div className={styles.actions}>
-            <a href="#projetos" className={styles.primaryButton}>
-              Explorar Projetos
+            <a href="#projetos" className="btn-primary">
+              Ver Projetos
             </a>
-            <a href="#comunidade" className={styles.secondaryButton}>
-              Ver Comunidade
+            <a href="#comunidade" className="btn-secondary">
+              Nossa Comunidade
             </a>
           </div>
         </div>

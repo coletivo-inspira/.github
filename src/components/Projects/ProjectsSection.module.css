@@ -3,12 +3,7 @@
   background: rgba(255, 255, 255, 0.6);
 }
 
-.container {
-  width: 100%;
-  max-width: 80rem;
-  margin: 0 auto;
-  padding: 0 var(--spacing-md);
-}
+
 
 .header {
   display: flex;
@@ -18,21 +13,7 @@
   justify-content: space-between;
 }
 
-.title {
-  margin-bottom: var(--spacing-md);
-  color: var(--color-night);
-  font-family: var(--font-display);
-  font-size: 2.5rem;
-  font-weight: 700;
-  line-height: 1.2;
-}
 
-.subtitle {
-  margin-bottom: 0;
-  color: rgba(15, 42, 42, 0.7);
-  font-size: 1.125rem;
-  line-height: 1.75;
-}
 
 .filterPanel {
   display: flex;
@@ -111,17 +92,8 @@
   transform: translateY(-8px) scale(1.02);
 }
 
-.chip {
-  display: inline-block;
+.cardChip {
   margin-bottom: var(--spacing-md);
-  padding: var(--spacing-xs) var(--spacing-md);
-  border-radius: 0.25rem;
-  background: rgba(216, 67, 21, 0.1);
-  color: var(--color-burnt);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
 }
 
 .cardTitle {
@@ -151,26 +123,14 @@
 }
 
 @media (min-width: 640px) {
-  .container {
-    padding-right: var(--spacing-lg);
-    padding-left: var(--spacing-lg);
-  }
 
-  .title {
-    font-size: 3rem;
-  }
 
   .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media (min-width: 1024px) {
-  .container {
-    padding-right: var(--spacing-2xl);
-    padding-left: var(--spacing-2xl);
-  }
-}
+
 
 @media (min-width: 1280px) {
   .grid {
