@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/coletivo-inspira/.github/main/image/image2.png" width="600" alt="Bandeira Amor, Ordem e Coletivo">
+  <img src="https://inspira.dev.br/image/image2.png" width="600" alt="Bandeira Amor, Ordem e Coletivo">
   <br><br>
   <h1>🌟 Bem-vindo ao GitHub do Coletivo Inspira!</h1>
   <p><i>Arte, cultura, desenvolvimento, diversão e um novo estilo de vida.</i></p>
@@ -12,7 +12,7 @@
 **O que você faz com seus amigos quando estão a toa? Nós criamos o COLETIVO INSPIRA!**
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/coletivo-inspira/.github/main/image/image1.png" width="450" alt="Felipe e Pedro na infância">
+  <img src="https://inspira.dev.br/image/image1.png" width="450" alt="Felipe e Pedro na infância">
 </div>
 <br>
 
@@ -27,7 +27,7 @@ Agora estamos ainda mais fortes e determinados a fazer a diferença, seguindo co
 O Coletivo cresceu e agora também respira os ares de Belo Horizonte! A nossa essência criativa e comunitária se desdobra em novos projetos pela capital mineira:
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/coletivo-inspira/.github/main/image/image3.png" width="650" alt="Galera do Coletivo Inspira em ação">
+  <img src="https://inspira.dev.br/image/image3.png" width="650" alt="Galera do Coletivo Inspira em ação">
 </div>
 <br>
 
