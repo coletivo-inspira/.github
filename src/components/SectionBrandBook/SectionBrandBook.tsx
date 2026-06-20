@@ -18,8 +18,8 @@ export function SectionBrandBook() {
         </p>
 
         <ul className={styles.list}>
-          {brandBookGuidelines.map((guideline) => (
-            <li key={guideline} className={styles.item}>
+          {brandBookGuidelines.map((guideline, index) => (
+            <li key={`guideline-${index}`} className={styles.item}>
               {guideline}
             </li>
           ))}
