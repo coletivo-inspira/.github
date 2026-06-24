@@ -100,6 +100,11 @@ export function Header({ onProjectFilter }: HeaderProps) {
                 Comunidade
               </a>
             </li>
+            <li>
+              <a href="#brand-book" className={styles.navLink}>
+                Brand Book
+              </a>
+            </li>
           </ul>
         </div>
 
@@ -134,6 +139,9 @@ export function Header({ onProjectFilter }: HeaderProps) {
 
           <a href="#comunidade" className={styles.mobileLink} onClick={closeMobileMenu}>
             Comunidade
+          </a>
+          <a href="#brand-book" className={styles.mobileLink} onClick={closeMobileMenu}>
+            Brand Book
           </a>
         </div>
       </nav>
