@@ -1,16 +1,15 @@
 :root {
-  --color-forest: #184e3b;
-  --color-river: #1d8a8a;
-  --color-earth: #b8762d;
-  --color-burnt: #d84315;
-  --color-cream: #f5f1e8;
-  --color-mist: #e7f6f2;
-  --color-night: #0f2a2a;
+  --color-forest: #133824; /* 30% Structural */
+  --color-offwhite: #F7F7F4; /* 60% Background */
+  --color-mustard: #E5A91E; /* 10% Accent */
+  --color-orange: #F05D23; /* 10% Accent */
+  --color-pink: #E5007C; /* Paleta B/C */
+  
   --color-white: #ffffff;
+  --color-night: #133824; /* Main text color */
 
-  --font-display: "Fraunces", serif;
-  --font-brand: "Palm Beach", serif;
-  --font-body: "Space Grotesk", sans-serif;
+  --font-display: var(--font-display), "Syne", sans-serif;
+  --font-body: var(--font-body), "DM Sans", sans-serif;
 
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
@@ -20,21 +19,14 @@
   --spacing-2xl: 3rem;
   --spacing-3xl: 4rem;
 
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
-  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.2);
+  /* Solid Borders & Hard Shadows - No blur */
+  --shadow-sm: 4px 4px 0px rgba(0, 0, 0, 1);
+  --shadow-md: 8px 8px 0px rgba(0, 0, 0, 1);
+  --shadow-lg: 12px 12px 0px rgba(0, 0, 0, 1);
 
   --duration-fast: 150ms;
   --duration-base: 280ms;
   --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
-  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-@font-face {
-  font-family: "Palm Beach";
-  src: url("/Fontes/Palm Beach.ttf") format("truetype");
-  font-display: fallback;
 }
 
 * {
@@ -52,7 +44,7 @@ body {
   min-height: 100%;
   overflow-x: hidden;
   color: var(--color-night);
-  background: linear-gradient(135deg, var(--color-mist) 0%, var(--color-cream) 100%);
+  background-color: var(--color-offwhite);
   font-family: var(--font-body);
   font-size: 1rem;
   line-height: 1.6;
@@ -72,8 +64,7 @@ button {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background: linear-gradient(135deg, var(--color-mist) 0%, var(--color-cream) 100%);
-  background-attachment: fixed;
+  background-color: var(--color-offwhite);
 }
 
 .sr-only {

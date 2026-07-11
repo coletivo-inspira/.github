@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback, useRef } from "react";
+import { useEffect, useState, useCallback } from "react";
 import type { GitHubRepo, RepoMetadata } from "@/types/github";
 import {
   fetchOrgRepos,
@@ -35,12 +35,6 @@ export function useGitHubRepos(): UseGitHubReposResult {
   const [error, setError] = useState<string | null>(null);
   const [rateLimited, setRateLimited] = useState(false);
 
-  // We use a ref to avoid caching the state during rapid renders
-  const metadataRef = useRef(metadata);
-  useEffect(() => {
-    metadataRef.current = metadata;
-  }, [metadata]);
-
   const saveToCache = useCallback((currentRepos: GitHubRepo[], currentMetadata: Map<number, RepoMetadata>) => {
     if (typeof window === "undefined") return;
     const metadataRecord = Object.fromEntries(currentMetadata.entries());
@@ -57,10 +51,10 @@ export function useGitHubRepos(): UseGitHubReposResult {
   }, []);
 
   const loadContributors = useCallback(
-    (repoList: GitHubRepo[]) => {
+    (repoList: GitHubRepo[], currentMeta: Map<number, RepoMetadata>) => {
       for (const repo of repoList) {
         // Skip if we already have the contributor count from cache
-        if (metadataRef.current.get(repo.id)?.contributors !== null) {
+        if (currentMeta.get(repo.id)?.contributors != null) {
           continue;
         }
 
@@ -103,7 +97,7 @@ export function useGitHubRepos(): UseGitHubReposResult {
               
               // We still want to fire loadContributors in case some repos failed to load 
               // contributors previously (e.g. rate limit hit mid-way during last visit)
-              loadContributors(cached.repos);
+              loadContributors(cached.repos, cachedMeta);
               return;
             }
           }
@@ -142,7 +136,7 @@ export function useGitHubRepos(): UseGitHubReposResult {
         saveToCache(repoList, initialMeta);
 
         // Fire off contributor fetches (progressive update)
-        loadContributors(repoList);
+        loadContributors(repoList, initialMeta);
       } catch (err) {
         if (cancelled) return;
         setError(
