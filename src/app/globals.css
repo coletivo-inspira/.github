@@ -8,8 +8,7 @@
   --color-white: #ffffff;
   --color-night: #133824; /* Main text color */
 
-  --font-display: var(--font-display), "Syne", sans-serif;
-  --font-body: var(--font-body), "DM Sans", sans-serif;
+  /* Font CSS variables (--font-display, --font-body) are set on <html> via next/font (see app/layout.tsx). */
 
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
