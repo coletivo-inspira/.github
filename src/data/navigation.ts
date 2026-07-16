@@ -9,15 +9,17 @@ export interface ProjectFilterLink extends NavLink {
   filter: ProjectFilter;
 }
 
-export const mainNavLinks: NavLink[] = [
+export const mainNavLinks: readonly NavLink[] = [
   { label: "Início", href: "#inicio" },
+  { label: "Pilares", href: "#pilares" },
+  { label: "Projetos", href: "#projetos" },
   { label: "Sobre", href: "#sobre" },
   { label: "Comunidade", href: "#comunidade" },
-];
+] as const;
 
-export const projectFilterLinks: ProjectFilterLink[] = [
-  { label: "Festas", href: "#projetos", filter: "Festas" },
-  { label: "Saúde", href: "#projetos", filter: "Saúde" },
-  { label: "Arte", href: "#projetos", filter: "Arte" },
-  { label: "Ver Todos", href: "#projetos", filter: "Todos" },
-];
+export const projectFilterLinks: readonly ProjectFilterLink[] = [
+  { label: "Todos", href: "#projetos", filter: "Todos" },
+  { label: "Social", href: "#projetos", filter: "Social" },
+  { label: "Tecnologia", href: "#projetos", filter: "Tecnologia" },
+  { label: "Cultura", href: "#projetos", filter: "Cultura" },
+] as const;

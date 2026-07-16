@@ -30,7 +30,9 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${syne.variable} ${dmSans.variable}`}>
       <body>
-        <div className="bg-pattern" />
+        <a className="skip-link" href="#conteudo">
+          Pular para o conteúdo
+        </a>
         {children}
       </body>
     </html>

@@ -1,48 +1,20 @@
 .dialog {
-  position: fixed;
-  border: none;
+  width: min(calc(100% - 2rem), 42rem);
+  max-width: none;
+  margin: auto;
   padding: 0;
-  max-width: 40rem;
-  width: calc(100% - 2rem);
-  border-radius: 1rem;
-  background: var(--color-cream);
-  box-shadow: var(--shadow-xl);
-  overflow: visible;
-  color: var(--color-night);
+  border: 2px solid var(--color-ink);
+  background: var(--color-offwhite);
+  box-shadow: 12px 12px 0 var(--color-orange);
+  color: var(--color-ink);
 }
 
 .dialog::backdrop {
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(4px);
+  background: var(--color-ink);
 }
 
-/* Opening animation */
 .dialog[open] {
-  animation: modalIn var(--duration-base) var(--ease-spring) both;
-}
-
-.dialog[open]::backdrop {
-  animation: fadeIn var(--duration-base) var(--ease-smooth) both;
-}
-
-@keyframes modalIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95) translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  animation: modalIn var(--duration-base) var(--ease-out) both;
 }
 
 .panel {
@@ -51,174 +23,143 @@
 
 .closeButton {
   position: absolute;
-  top: var(--spacing-md);
-  right: var(--spacing-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 2rem;
-  height: 2rem;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2;
+  display: grid;
+  width: 2.75rem;
+  height: 2.75rem;
   padding: 0;
-  border: none;
-  border-radius: 0.5rem;
-  background: transparent;
-  color: rgba(15, 42, 42, 0.6);
+  place-items: center;
+  border: 2px solid var(--color-ink);
+  background: var(--color-mustard);
+  color: var(--color-ink);
   cursor: pointer;
-  z-index: 10;
-  transition: color var(--duration-fast) var(--ease-smooth),
-    background var(--duration-fast) var(--ease-smooth);
 }
 
 .closeButton:hover {
-  color: var(--color-night);
-  background: rgba(0, 0, 0, 0.05);
-}
-
-.closeButton:focus-visible {
-  outline: 2px solid var(--color-burnt);
-  outline-offset: 2px;
+  background: var(--color-orange);
+  color: var(--color-white);
 }
 
 .closeIcon {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.4rem;
+  height: 1.4rem;
 }
 
 .content {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
-  padding: var(--spacing-lg);
-}
-
-@media (min-width: 640px) {
-  .content {
-    padding: var(--spacing-2xl);
-  }
+  padding: 2rem 1.25rem 1.25rem;
 }
 
 .title {
-  font-family: var(--font-brand);
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--color-burnt);
-  margin-bottom: 0;
-  padding-right: 2.5rem;
+  padding-right: 3.5rem;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.05;
 }
 
 .description {
-  color: rgba(15, 42, 42, 0.8);
-  line-height: 1.6;
-  margin-bottom: 0;
+  margin-top: 1rem;
+  color: var(--color-muted);
 }
 
 .metaGrid {
   display: grid;
-  gap: var(--spacing-lg);
-  margin: var(--spacing-lg) 0;
-}
-
-@media (min-width: 640px) {
-  .metaGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  gap: 0.75rem;
+  margin-top: 1.5rem;
 }
 
 .metaBlock {
-  padding: var(--spacing-md);
-  border-left: 3px solid var(--color-burnt);
-  background: rgba(216, 67, 21, 0.05);
-  border-radius: 0.5rem;
+  padding: 1rem;
+  border: 2px solid var(--color-ink);
+  background: var(--color-white);
 }
 
-.metaLabel {
-  font-size: 0.75rem;
-  font-weight: 600;
+.metaLabel,
+.topicsLabel {
+  font-size: 0.68rem;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: rgba(15, 42, 42, 0.6);
-  margin-bottom: var(--spacing-xs);
 }
 
 .metaValue {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--color-night);
-  margin-bottom: 0;
+  margin-top: 0.25rem;
+  color: var(--color-forest);
+  font-weight: 800;
 }
 
 .topicsSection {
-  padding-top: var(--spacing-md);
-  border-top: 1px solid rgba(29, 138, 138, 0.2);
-}
-
-.topicsLabel {
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: rgba(15, 42, 42, 0.6);
-  margin-bottom: var(--spacing-sm);
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--color-ink);
 }
 
 .topicsList {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--spacing-sm);
+  gap: 0.5rem;
+  margin-top: 0.75rem;
 }
 
 .topicChip {
-  display: inline-block;
-  padding: var(--spacing-xs) var(--spacing-md);
-  border-radius: 9999px;
-  background: rgba(216, 67, 21, 0.1);
-  color: var(--color-burnt);
-  font-size: 0.875rem;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid var(--color-forest);
+  color: var(--color-forest);
+  font-size: 0.75rem;
+  font-weight: 800;
 }
 
 .actions {
-  display: flex;
-  gap: var(--spacing-md);
-  margin-top: var(--spacing-lg);
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
 }
 
 .primaryAction,
 .secondaryAction {
-  flex: 1;
-  display: block;
-  padding: var(--spacing-md) var(--spacing-lg);
-  border-radius: 0.5rem;
-  font-weight: 600;
-  font-size: 1rem;
+  display: grid;
+  min-height: 3.25rem;
+  padding: 0.75rem 1rem;
+  place-items: center;
+  border: 2px solid var(--color-ink);
+  font-weight: 800;
   text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background var(--duration-base) var(--ease-smooth),
-    transform var(--duration-base) var(--ease-smooth);
 }
 
 .primaryAction {
-  background: var(--color-burnt);
-  color: var(--color-white);
-  border: none;
-}
-
-.primaryAction:hover {
-  background: #c4380a;
+  background: var(--color-mustard);
+  box-shadow: var(--shadow-sm);
 }
 
 .secondaryAction {
-  background: rgba(255, 255, 255, 0.15);
-  color: var(--color-night);
-  border: 2px solid var(--color-burnt);
+  background: var(--color-white);
 }
 
+.primaryAction:hover,
 .secondaryAction:hover {
-  background: var(--color-cream);
+  background: var(--color-orange);
+  color: var(--color-white);
 }
 
-.primaryAction:focus-visible,
-.secondaryAction:focus-visible {
-  outline: 2px solid var(--color-burnt);
-  outline-offset: 2px;
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 640px) {
+  .content {
+    padding: 2.5rem;
+  }
+
+  .metaGrid,
+  .actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }

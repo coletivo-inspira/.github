@@ -1,5 +1,5 @@
+import { projects } from "@/data/hub";
 import { projectFilterLinks } from "@/data/navigation";
-import { projects } from "@/data/projects";
 import type { Project, ProjectFilter } from "@/types/project";
 import styles from "./ProjectsSection.module.css";
 
@@ -9,18 +9,20 @@ interface ProjectsSectionProps {
 }
 
 export function ProjectsSection({ selectedFilter, onFilterChange }: ProjectsSectionProps) {
-  const visibleProjects = projects.filter((project) =>
-    selectedFilter === "Todos" ? true : project.categories.includes(selectedFilter),
+  const visibleProjects = projects.filter(
+    (project) => selectedFilter === "Todos" || project.pillar === selectedFilter,
   );
 
   return (
-    <section id="projetos" className={styles.section}>
+    <section id="projetos" className={styles.section} aria-labelledby="projects-title">
       <div className="section-container">
         <div className={styles.header}>
-          <div>
-            <h2 className="section-title">Iniciativas e Projetos</h2>
-            <p className="section-subtitle">
-              Conheça as ações do Coletivo Inspira. Da tecnologia à preservação ambiental.
+          <div className="section-heading section-heading-light">
+            <p className="eyebrow">Projetos em movimento</p>
+            <h2 id="projects-title">Ideias que já encontraram correnteza</h2>
+            <p>
+              Os primeiros cards são os destaques do hub. A ordem e o conteúdo vêm
+              diretamente do arquivo central de dados.
             </p>
           </div>
 
@@ -28,16 +30,10 @@ export function ProjectsSection({ selectedFilter, onFilterChange }: ProjectsSect
         </div>
 
         <div className={styles.grid}>
-          {visibleProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+          {visibleProjects.map((project, index) => (
+            <ProjectCard key={project.id} project={project} index={index} />
           ))}
         </div>
-
-        {visibleProjects.length === 0 ? (
-          <p className={styles.emptyState}>
-            Ainda não há projetos visíveis para essa categoria. Novidades em breve.
-          </p>
-        ) : null}
       </div>
     </section>
   );
@@ -50,39 +46,57 @@ interface ProjectFilterProps {
 
 function ProjectFilter({ selectedFilter, onFilterChange }: ProjectFilterProps) {
   return (
-    <div className={styles.filterPanel} aria-label="Filtrar projetos">
-      <p className={styles.filterBadge}>Exibindo: {selectedFilter}</p>
-      <div className={styles.filterButtons}>
-        {projectFilterLinks.map((item) => (
-          <button
-            key={item.filter}
-            type="button"
-            className={`${styles.filterButton} ${
-              selectedFilter === item.filter ? styles.filterButtonActive : ""
-            }`}
-            aria-pressed={selectedFilter === item.filter}
-            onClick={() => onFilterChange(item.filter)}
-          >
-            {item.label}
-          </button>
-        ))}
-      </div>
+    <div className={styles.filters} role="group" aria-label="Filtrar projetos por pilar">
+      {projectFilterLinks.map((item) => (
+        <button
+          key={item.filter}
+          type="button"
+          aria-pressed={selectedFilter === item.filter}
+          onClick={() => onFilterChange(item.filter)}
+        >
+          {item.label}
+        </button>
+      ))}
     </div>
   );
 }
 
 interface ProjectCardProps {
   project: Project;
+  index: number;
 }
 
-function ProjectCard({ project }: ProjectCardProps) {
-  return (
-    <article className={styles.card}>
-      <div>
-        <p className={'chip ' + styles.cardChip}>{project.label}</p>
-        <h3 className={styles.cardTitle}>{project.title}</h3>
-        <p className={styles.cardText}>{project.description}</p>
+function ProjectCard({ project, index }: ProjectCardProps) {
+  const content = (
+    <>
+      <div className={styles.cardTopline}>
+        <span>{String(index + 1).padStart(2, "0")}</span>
+        <span>{project.status}</span>
       </div>
+      <div className={styles.cardBody}>
+        <p className={styles.cardEyebrow}>{project.eyebrow}</p>
+        <h3>{project.title}</h3>
+        <p>{project.description}</p>
+      </div>
+      <div className={styles.cardFooter}>
+        <span>{project.pillar}</span>
+        <span>{project.location}</span>
+        {project.href ? <b aria-hidden="true">-&gt;</b> : null}
+      </div>
+    </>
+  );
+
+  if (project.href) {
+    return (
+      <a className={styles.card} data-featured={project.featured} href={project.href}>
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <article className={styles.card} data-featured={project.featured}>
+      {content}
     </article>
   );
 }
