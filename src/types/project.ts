@@ -1,11 +1,17 @@
-export type ProjectFilter = "Todos" | "Festas" | "Saúde" | "Arte";
+export type ProjectPillar = "Social" | "Tecnologia" | "Cultura";
 
-export type ProjectCategory = Exclude<ProjectFilter, "Todos"> | "Sustentabilidade";
+export type ProjectFilter = "Todos" | ProjectPillar;
+
+export type ProjectStatus = "Ativo" | "Em desenvolvimento" | "Concluído";
 
 export interface Project {
   id: string;
   title: string;
   description: string;
-  label: string;
-  categories: ProjectCategory[];
+  pillar: ProjectPillar;
+  eyebrow: string;
+  location: string;
+  status: ProjectStatus;
+  featured: boolean;
+  href?: string;
 }

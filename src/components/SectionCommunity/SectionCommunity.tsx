@@ -1,77 +1,65 @@
 "use client";
 
-import { useState, useCallback } from "react";
-import type { GitHubRepo } from "@/types/github";
-import { useGitHubRepos } from "@/hooks/useGitHubRepos";
+import { useCallback, useState } from "react";
 import { RepoGrid } from "@/components/RepoGrid/RepoGrid";
 import { RepoModal } from "@/components/RepoModal/RepoModal";
+import { hubConfig } from "@/data/hub";
+import { useGitHubRepos } from "@/hooks/useGitHubRepos";
+import type { GitHubRepo } from "@/types/github";
 import styles from "./SectionCommunity.module.css";
 
 export function SectionCommunity() {
   const { repos, metadata, loading, error, rateLimited } = useGitHubRepos();
   const [selectedRepo, setSelectedRepo] = useState<GitHubRepo | null>(null);
-
   const handleCloseModal = useCallback(() => setSelectedRepo(null), []);
 
   return (
-    <section id="comunidade" className={styles.section}>
+    <section id="comunidade" className={styles.section} aria-labelledby="community-title">
       <div className="section-container">
-        <h2 className="section-title">Comunidade e Portfólios</h2>
-        <p className="section-subtitle">
-          Talentos que formam a rede Inspira. Desenvolvedores, designers,
-          criadores. Cada um com sua própria história publicada.
-        </p>
+        <div className={styles.header}>
+          <div className="section-heading">
+            <p className="eyebrow">Código aberto, rede viva</p>
+            <h2 id="community-title">Comunidade no GitHub</h2>
+            <p>
+              Repositórios públicos, experimentos e portfólios que fazem parte do
+              ecossistema Coletivo Inspira.
+            </p>
+          </div>
+          <a className="button buttonPrimary" href={hubConfig.hudiPagesUrl}>
+            Criar meu portfólio
+          </a>
+        </div>
 
-        {/* Status messages */}
         {rateLimited ? (
           <div className={styles.statusBox} role="alert">
-            <p className={styles.statusText}>
-              Limite de requisições atingido. Por favor, aguarde alguns minutos
-              e tente novamente.
-            </p>
-            <p className={styles.statusHint}>
-              Dica: A API pública do GitHub permite 60 requisições por hora.
-              Tente novamente em alguns minutos.
-            </p>
+            <strong>O GitHub pediu uma pausa.</strong>
+            <p>O limite público foi atingido. Os projetos voltam a aparecer em alguns minutos.</p>
           </div>
         ) : null}
 
         {error ? (
           <div className={styles.statusBox} role="alert">
-            <p className={styles.statusText}>
-              Não foi possível carregar os portfólios agora. Tente novamente em
-              alguns minutos.
-            </p>
-            <p className={styles.statusHint}>Erro: {error}</p>
+            <strong>Não foi possível carregar a comunidade agora.</strong>
+            <p>{error}</p>
           </div>
         ) : null}
 
-        {!loading && !error && !rateLimited && repos.length === 0 ? (
-          <p className={styles.emptyState}>
-            Nenhum repositório público foi encontrado para a comunidade neste
-            momento.
+        {loading ? (
+          <p className={styles.counter} role="status" aria-live="polite">
+            Carregando repositórios...
           </p>
         ) : null}
 
-        {/* Loading status */}
-        {loading ? (
-          <div className={styles.statusBox} role="status" aria-live="polite">
-            <p className={styles.statusText}>
-              Carregando portfólios da comunidade...
-            </p>
-          </div>
-        ) : null}
-
-        {/* Repos loaded counter */}
         {!loading && !error && !rateLimited && repos.length > 0 ? (
-          <div className={styles.statusBox} role="status" aria-live="polite">
-            <p className={styles.statusText}>
-              Portfólios carregados: {repos.length}
-            </p>
-          </div>
+          <p className={styles.counter} role="status" aria-live="polite">
+            {repos.length} repositórios encontrados
+          </p>
         ) : null}
 
-        {/* Grid: shows skeletons while loading, or cards when loaded */}
+        {!loading && !error && !rateLimited && repos.length === 0 ? (
+          <p className={styles.statusBox}>Nenhum repositório público encontrado.</p>
+        ) : null}
+
         {!error && !rateLimited ? (
           <RepoGrid
             repos={repos}
@@ -82,7 +70,6 @@ export function SectionCommunity() {
         ) : null}
       </div>
 
-      {/* Modal */}
       <RepoModal
         repo={selectedRepo}
         metadata={selectedRepo ? metadata.get(selectedRepo.id) : undefined}

@@ -2,6 +2,13 @@
 
 O **Coletivo Inspira** é um movimento de cultura, ecoturismo, sustentabilidade e inovação tecnológica nascido em Bonito-MS. Como as correntezas do Rio Formoso, o coletivo flui conectando pessoas, ideias e projetos para trazer um novo estilo de vida e transformar o território de forma criativa.
 
+## Edição rápida do hub
+
+Projetos, destaques, pilares e links oficiais são centralizados em
+`src/data/hub.ts`. Consulte `docs/CONTENT-GUIDE.md` antes de incluir uma nova
+iniciativa. O construtor de portfólios vive no repositório separado
+[`coletivo-inspira/hudi-pg`](https://github.com/coletivo-inspira/hudi-pg).
+
 ## 🚀 Sobre o Projeto
 
 Este repositório abriga a landing page e a vitrine digital do Coletivo Inspira. A aplicação foi construída visando alta performance e otimização de SEO, apresentando:

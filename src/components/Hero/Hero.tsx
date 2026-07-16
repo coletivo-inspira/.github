@@ -1,29 +1,41 @@
+import Image from "next/image";
+import { hubConfig } from "@/data/hub";
 import styles from "./Hero.module.css";
 
 export function Hero() {
   return (
-    <section id="inicio" className={styles.hero}>
-      <div className={`${styles.heroGlow} ${styles.heroGlowA}`} />
-      <div className={`${styles.heroGlow} ${styles.heroGlowB}`} />
+    <section id="inicio" className={styles.hero} aria-labelledby="hero-title">
+      <Image
+        src="/image/image1.png"
+        alt="Integrantes e encontros do Coletivo Inspira"
+        fill
+        sizes="100vw"
+        className={styles.background}
+        priority
+      />
+      <div className={styles.colorBlock} aria-hidden="true" />
+      <div className={styles.currentLine} aria-hidden="true">
+        <span />
+      </div>
 
       <div className={styles.container}>
         <div className={styles.content}>
-          <p className={styles.badge}>Bonito-MS | Arte, Ecoturismo e Inovação</p>
-          <h1 className={styles.title}>
-            Onde a cultura encontra a tecnologia
-            <span>e transforma territórios.</span>
-          </h1>
+          <p className={styles.eyebrow}>{hubConfig.location}</p>
+          <h1 id="hero-title">Coletivo Inspira</h1>
+          <p className={styles.lead}>
+            Cultura, tecnologia e impacto social para abrir caminhos e movimentar
+            territórios.
+          </p>
           <p className={styles.text}>
-            Como as correntezas do Rio Formoso, o Coletivo Inspira flui conectando
-            pessoas, arte, natureza e desenvolvimento. Um movimento que respira com
-            Bonito e pulsa para transformar.
+            Criamos experiências, produtos digitais e redes de cuidado com quem
+            acredita que desenvolvimento também se faz em coletivo.
           </p>
           <div className={styles.actions}>
-            <a href="#projetos" className="btn-primary">
-              Ver Projetos
+            <a href={hubConfig.hudiPagesUrl} className="button buttonPrimary">
+              Criar meu portfólio gratuito <span aria-hidden="true">-&gt;</span>
             </a>
-            <a href="#comunidade" className="btn-secondary">
-              Nossa Comunidade
+            <a href="#projetos" className="button buttonSecondary">
+              Conhecer projetos
             </a>
           </div>
         </div>

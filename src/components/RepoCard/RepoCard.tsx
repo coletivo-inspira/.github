@@ -1,5 +1,5 @@
-import type { GitHubRepo, RepoMetadata } from "@/types/github";
 import { formatGitHubDate } from "@/lib/github";
+import type { GitHubRepo, RepoMetadata } from "@/types/github";
 import styles from "./RepoCard.module.css";
 
 interface RepoCardProps {
@@ -10,63 +10,40 @@ interface RepoCardProps {
 
 export function RepoCard({ repo, metadata, onSelect }: RepoCardProps) {
   const portfolioUrl = metadata?.portfolioUrl ?? null;
-  const contributors = metadata?.contributors ?? null;
-
-  const contributorDisplay =
-    contributors !== null
-      ? `${contributors} contribuidores`
-      : "Dados indisponíveis";
+  const contributors = metadata?.contributors;
 
   return (
-    <article
-      className={styles.card}
-      onClick={() => onSelect(repo)}
-      role="button"
-      tabIndex={0}
-      onKeyDown={(e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          onSelect(repo);
-        }
-      }}
-    >
+    <article className={styles.card}>
+      <div className={styles.index}>GH</div>
       <div className={styles.body}>
         <div className={styles.header}>
-          <h3 className={styles.name}>{repo.name}</h3>
-          {repo.language ? (
-            <span className={styles.lang}>{repo.language}</span>
-          ) : null}
+          <h3>{repo.name}</h3>
+          {repo.language ? <span>{repo.language}</span> : null}
         </div>
-
         <p className={styles.description}>
           {repo.description || "Este repositório ainda não possui descrição."}
         </p>
-
-        <div className={styles.meta}>
-          <span className={styles.metaItem}>{contributorDisplay}</span>
-          <span className={styles.metaItem}>
-            {portfolioUrl
-              ? `Atualizado ${formatGitHubDate(repo.updated_at)}`
-              : `Criado ${formatGitHubDate(repo.created_at)}`}
-          </span>
-        </div>
+        <dl className={styles.meta}>
+          <div>
+            <dt>Contribuidores</dt>
+            <dd>{contributors ?? "--"}</dd>
+          </div>
+          <div>
+            <dt>Atualizado</dt>
+            <dd>{formatGitHubDate(repo.updated_at)}</dd>
+          </div>
+        </dl>
       </div>
-
-      {portfolioUrl ? (
-        <a
-          href={portfolioUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.button}
-          onClick={(e) => e.stopPropagation()}
-        >
-          Acessar Portfólio
-        </a>
-      ) : (
-        <button type="button" className={styles.button} onClick={() => onSelect(repo)}>
-          Mais Detalhes
+      <div className={styles.actions}>
+        <button type="button" onClick={() => onSelect(repo)}>
+          Ver detalhes
         </button>
-      )}
+        {portfolioUrl ? (
+          <a href={portfolioUrl} target="_blank" rel="noopener noreferrer">
+            Abrir portfólio
+          </a>
+        ) : null}
+      </div>
     </article>
   );
 }
@@ -74,19 +51,12 @@ export function RepoCard({ repo, metadata, onSelect }: RepoCardProps) {
 export function RepoCardSkeleton() {
   return (
     <div className={`${styles.card} ${styles.skeleton}`} aria-hidden="true">
+      <div className={styles.index}>--</div>
       <div className={styles.body}>
-        <div className={styles.header}>
-          <div className={styles.skeletonLine} style={{ width: "60%" }} />
-          <div className={styles.skeletonLine} style={{ width: "3rem" }} />
-        </div>
-        <div className={styles.skeletonLine} style={{ width: "90%", marginTop: "0.75rem" }} />
-        <div className={styles.skeletonLine} style={{ width: "70%", marginTop: "0.5rem" }} />
-        <div className={styles.meta}>
-          <div className={styles.skeletonLine} style={{ width: "8rem" }} />
-          <div className={styles.skeletonLine} style={{ width: "10rem" }} />
-        </div>
+        <div className={styles.skeletonLine} />
+        <div className={styles.skeletonLine} />
+        <div className={styles.skeletonLine} />
       </div>
-      <div className={`${styles.skeletonLine} ${styles.skeletonButton}`} />
     </div>
   );
 }
