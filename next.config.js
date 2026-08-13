@@ -5,9 +5,12 @@ const nextConfig = {
   output: "export",
   reactStrictMode: true,
   trailingSlash: true,
+  turbopack: {
+    root: process.cwd(),
+  },
   images: {
     unoptimized: true,
   },
 };
 
-module.exports = nextConfig;
+export default nextConfig;
