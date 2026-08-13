@@ -36,6 +36,26 @@
   color: var(--color-muted);
 }
 
+.moreAction {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  align-items: center;
+  margin-top: 2.5rem;
+}
+
+.moreAction button {
+  cursor: pointer;
+}
+
+.moreAction > a {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  border-bottom: 2px solid var(--color-rust);
+  font-weight: 800;
+}
+
 @media (min-width: 860px) {
   .header {
     grid-template-columns: 1fr auto;

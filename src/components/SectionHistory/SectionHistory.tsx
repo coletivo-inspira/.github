@@ -27,17 +27,19 @@ export function SectionHistory() {
           <figure className={styles.gallery}>
             <Image
               src="/image/image2.png"
-              alt="Encontro cultural promovido pelo Coletivo Inspira"
+              alt="Bandeira do Brasil usada em uma ação cultural do Coletivo Inspira"
               width={900}
               height={640}
               className={styles.mainPhoto}
+              loading="eager"
             />
             <Image
-              src="/image/image3.png"
-              alt="Pessoas da comunidade reunidas em uma ação do coletivo"
-              width={600}
-              height={600}
+              src="/image/logo/versao1.png"
+              alt=""
+              width={1024}
+              height={1024}
               className={styles.detailPhoto}
+              loading="eager"
             />
             <figcaption>Bonito-MS / cultura em movimento</figcaption>
           </figure>

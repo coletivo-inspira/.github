@@ -15,7 +15,7 @@ export function Header() {
       <div className={styles.inner}>
         <a href="#inicio" className={styles.brand} onClick={closeMobileMenu}>
           <Image
-            src="/image/logo/versao3.jpg"
+            src="/image/logo/logo.png"
             alt=""
             width={44}
             height={44}
@@ -34,7 +34,7 @@ export function Header() {
         </nav>
 
         <a className={styles.cta} href={hubConfig.hudiPagesUrl}>
-          Criar portfólio
+          Criar meu portfólio gratuito
         </a>
 
         <button

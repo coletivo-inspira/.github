@@ -14,7 +14,7 @@ export const mainNavLinks: readonly NavLink[] = [
   { label: "Pilares", href: "#pilares" },
   { label: "Projetos", href: "#projetos" },
   { label: "Sobre", href: "#sobre" },
-  { label: "Comunidade", href: "#comunidade" },
+  { label: "Participe", href: "#participe" },
 ] as const;
 
 export const projectFilterLinks: readonly ProjectFilterLink[] = [

@@ -19,10 +19,10 @@ export function ProjectsSection({ selectedFilter, onFilterChange }: ProjectsSect
         <div className={styles.header}>
           <div className="section-heading section-heading-light">
             <p className="eyebrow">Projetos em movimento</p>
-            <h2 id="projects-title">Ideias que já encontraram correnteza</h2>
+            <h2 id="projects-title">Ideias que ganham forma com gente e território.</h2>
             <p>
-              Os primeiros cards são os destaques do hub. A ordem e o conteúdo vêm
-              diretamente do arquivo central de dados.
+              Portfólios gratuitos, redes de acolhimento, narrativas visuais e
+              experiências culturais que aproximam pessoas dos lugares onde vivem.
             </p>
           </div>
 
@@ -81,7 +81,12 @@ function ProjectCard({ project, index }: ProjectCardProps) {
       <div className={styles.cardFooter}>
         <span>{project.pillar}</span>
         <span>{project.location}</span>
-        {project.href ? <b aria-hidden="true">-&gt;</b> : null}
+        {project.href ? (
+          <span className={styles.cardAction}>
+            {project.href.startsWith("#") ? "Participar" : "Conhecer"}
+            <b aria-hidden="true">-&gt;</b>
+          </span>
+        ) : null}
       </div>
     </>
   );

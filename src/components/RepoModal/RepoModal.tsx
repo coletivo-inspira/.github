@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useCallback } from "react";
 import type { GitHubRepo, RepoMetadata } from "@/types/github";
-import { formatGitHubDate } from "@/lib/github";
+import { formatGitHubDate, getRepoDescription } from "@/lib/github";
 import styles from "./RepoModal.module.css";
 
 interface RepoModalProps {
@@ -91,9 +91,7 @@ export function RepoModal({ repo, metadata, onClose }: RepoModalProps) {
               {repo.name}
             </h2>
 
-            <p className={styles.description}>
-              {repo.description || "Sem descrição disponível."}
-            </p>
+            <p className={styles.description}>{getRepoDescription(repo)}</p>
 
             <div className={styles.metaGrid}>
               <MetaBlock label="Linguagem" value={repo.language || "—"} />

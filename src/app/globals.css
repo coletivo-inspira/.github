@@ -7,7 +7,9 @@
   --color-muted: #4f5e55;
   --color-mustard: #e5a91e;
   --color-orange: #f05d23;
+  --color-rust: #a93612;
   --color-pink: #e5007c;
+  --color-forest-deep: #092d1b;
 
   --container: 78rem;
   --section-space: 6rem;
@@ -31,7 +33,6 @@ html {
 
 body {
   min-height: 100%;
-  overflow-x: hidden;
   background: var(--color-offwhite);
   color: var(--color-ink);
   font-family: var(--font-body), sans-serif;
@@ -52,6 +53,7 @@ select {
 }
 
 img {
+  display: block;
   max-width: 100%;
 }
 
@@ -106,10 +108,12 @@ img {
   max-width: 100%;
   margin-top: 0.75rem;
   font-family: var(--font-display), sans-serif;
-  font-size: 2.75rem;
+  font-size: 2.1rem;
   font-weight: 800;
-  line-height: 1;
-  overflow-wrap: anywhere;
+  line-height: 1.02;
+  overflow-wrap: break-word;
+  text-wrap: balance;
+  word-break: normal;
 }
 
 .section-heading > p:last-child,
@@ -124,9 +128,13 @@ img {
   color: var(--color-soft-white);
 }
 
+.section-heading-light .eyebrow {
+  color: var(--color-mustard);
+}
+
 .eyebrow,
 .chip {
-  color: var(--color-orange);
+  color: var(--color-rust);
   font-size: 0.75rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -147,6 +155,13 @@ img {
   transition: transform var(--duration-fast) var(--ease-out),
     box-shadow var(--duration-fast) var(--ease-out),
     background var(--duration-fast) var(--ease-out);
+}
+
+.button:active,
+.btn-primary:active,
+.btn-secondary:active {
+  box-shadow: none;
+  transform: translate(5px, 5px);
 }
 
 .buttonPrimary,
@@ -180,6 +195,10 @@ img {
 @media (max-width: 640px) {
   :root {
     --section-space: 4.5rem;
+  }
+
+  .section-container {
+    width: min(100% - 1.5rem, var(--container));
   }
 }
 

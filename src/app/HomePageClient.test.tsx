@@ -18,7 +18,10 @@ describe("Coletivo Inspira home", () => {
     render(<HomePageClient />);
 
     expect(
-      screen.getByRole("heading", { level: 1, name: "Coletivo Inspira" }),
+      screen.getByRole("heading", {
+        level: 1,
+        name: "Cultura, cuidado e tecnologia para movimentar territórios.",
+      }),
     ).toBeInTheDocument();
     expect(
       screen
@@ -27,6 +30,9 @@ describe("Coletivo Inspira home", () => {
     ).toBe(true);
     expect(screen.getByRole("heading", { name: "Canto dos Pássaros" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Olhares" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: "Escolha o seu jeito de fazer parte." }),
+    ).toBeInTheDocument();
   });
 
   it("filters projects by the three hub pillars", () => {

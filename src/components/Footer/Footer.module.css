@@ -16,16 +16,26 @@
 }
 
 .title {
+  max-width: 17ch;
+  margin-top: 0.55rem;
   font-family: var(--font-display);
-  font-size: 2.5rem;
+  font-size: 2.25rem;
   font-weight: 800;
-  line-height: 1;
+  line-height: 1.05;
+  text-wrap: balance;
 }
 
-.inner p:last-child {
+.intro > p:last-child {
   max-width: 28rem;
   margin-top: 0.75rem;
   color: var(--color-soft-white);
+}
+
+.kicker {
+  color: var(--color-mustard);
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
 }
 
 .inner nav {

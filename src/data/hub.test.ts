@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { hubConfig, pillars, projects } from "./hub";
+import { hubConfig, impactMetrics, pillars, projects } from "./hub";
 
 describe("hub content registry", () => {
   it("keeps the three approved pillars", () => {
@@ -22,5 +22,9 @@ describe("hub content registry", () => {
       hubConfig.hudiPagesUrl,
     );
   });
-});
 
+  it("keeps verified impact metrics aligned with the hub", () => {
+    expect(impactMetrics.map((metric) => metric.value)).toEqual(["02", "03", "06"]);
+    expect(Number(impactMetrics[2].value)).toBe(projects.length);
+  });
+});
