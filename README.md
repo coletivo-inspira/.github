@@ -115,6 +115,7 @@ scripts `sites:dev`, `sites:build` e `sites:start` geram e executam a cópia
 compatível com o ambiente do Sites.
 
 O GitHub continua sendo a fonte principal do projeto e o fluxo do GitHub Pages
-permanece inalterado. Depois de mudanças na branch principal, uma nova versão
-do Sites deve ser salva e publicada pelo ChatGPT/Codex; o Sites ainda não oferece
-um gatilho nativo que publique automaticamente a cada push deste repositório.
+permanece inalterado. A cada mudança na branch principal, o GitHub Actions também
+gera e guarda por 14 dias uma cópia compatível com Sites. A etapa final de salvar
+e publicar uma nova versão continua sendo feita pelo ChatGPT/Codex, pois o Sites
+ainda não oferece um gatilho nativo de publicação para este repositório.
