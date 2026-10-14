@@ -36,6 +36,16 @@ jobs:
       - name: Build with Next.js
         run: npm run build
 
+      - name: Build ChatGPT Sites copy
+        run: npm run sites:build
+
+      - name: Store ChatGPT Sites copy
+        uses: actions/upload-artifact@v4
+        with:
+          name: chatgpt-sites-build
+          path: ./dist
+          retention-days: 14
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

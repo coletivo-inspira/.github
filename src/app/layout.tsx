@@ -17,9 +17,29 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Coletivo Inspira | inspira.dev.br",
+  metadataBase: new URL("https://inspira.dev.br"),
+  title: "Coletivo Inspira | Cultura, cuidado e tecnologia",
   description:
-    "Coletivo Inspira: arte, cultura, tecnologia e ecoturismo conectando pessoas e projetos em Bonito-MS.",
+    "Cultura, cuidado e tecnologia para movimentar pessoas, projetos e territórios em Bonito-MS, Belo Horizonte-MG e no ambiente digital.",
+  applicationName: "Coletivo Inspira",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    url: "/",
+    siteName: "Coletivo Inspira",
+    title: "Coletivo Inspira | Cultura, cuidado e tecnologia",
+    description:
+      "Pessoas, ideias e projetos conectados para abrir caminhos de impacto social, presença digital e cultura viva.",
+  },
+  twitter: {
+    card: "summary",
+    title: "Coletivo Inspira | Cultura, cuidado e tecnologia",
+    description:
+      "Pessoas, ideias e projetos conectados para movimentar territórios.",
+  },
 };
 
 export default function RootLayout({

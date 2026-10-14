@@ -106,6 +106,7 @@
   font-size: 2rem;
   font-weight: 800;
   line-height: 1;
+  text-wrap: balance;
 }
 
 .cardBody > p:last-child {
@@ -122,9 +123,32 @@
   color: var(--color-muted);
 }
 
-.cardFooter b {
-  color: var(--color-orange);
+.cardFooter .cardAction {
+  display: inline-flex;
+  margin-left: 0;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--color-ink);
+}
+
+.cardFooter .cardAction b {
+  color: var(--color-rust);
   font-size: 1.25rem;
+}
+
+@media (max-width: 420px) {
+  .cardFooter {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .cardFooter .cardAction {
+    width: 100%;
+    min-height: 2.75rem;
+    justify-content: space-between;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--color-ink);
+  }
 }
 
 @keyframes projectIn {

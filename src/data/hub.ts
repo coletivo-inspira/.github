@@ -17,6 +17,54 @@ export const hubConfig = {
   whatsappUrl: "https://chat.whatsapp.com/LHMN8hm8a4ILdZGbatRv7G",
 } as const;
 
+export const impactMetrics = [
+  {
+    value: "02",
+    label: "Frentes regionais",
+    description: "Bonito-MS e Belo Horizonte-MG",
+  },
+  {
+    value: "03",
+    label: "Pilares conectados",
+    description: "Social, Tecnologia e Cultura",
+  },
+  {
+    value: "06",
+    label: "Iniciativas no hub",
+    description: "Ativas ou em desenvolvimento",
+  },
+] as const;
+
+export const participationPaths = [
+  {
+    label: "Portfólio",
+    title: "Dê um endereço ao seu trabalho.",
+    description:
+      "Crie e publique gratuitamente seu smartfólio para apresentar sua trajetória, seus serviços e seus projetos.",
+    cta: "Criar meu portfólio gratuito",
+    href: hubConfig.hudiPagesUrl,
+    accent: "mustard",
+  },
+  {
+    label: "Negócio local",
+    title: "Transforme um desafio em solução.",
+    description:
+      "Aproxime seu comércio, pousada, hotel ou projeto do público com soluções digitais feitas para a sua realidade.",
+    cta: "Conversar sobre meu negócio",
+    href: hubConfig.instagramUrl,
+    accent: "orange",
+  },
+  {
+    label: "Comunidade",
+    title: "Venha construir com a gente.",
+    description:
+      "Conheça projetos abertos, compartilhe ideias e conecte-se a quem faz parte do ecossistema Inspira.",
+    cta: "Entrar na comunidade",
+    href: hubConfig.whatsappUrl,
+    accent: "pink",
+  },
+] as const;
+
 export const pillars: readonly Pillar[] = [
   {
     id: "Social",
@@ -56,6 +104,7 @@ export const projects: readonly Project[] = [
     location: "Bonito-MS",
     status: "Em desenvolvimento",
     featured: true,
+    href: "#participe",
   },
   {
     id: "olhares",
@@ -67,6 +116,7 @@ export const projects: readonly Project[] = [
     location: "Bonito-MS",
     status: "Em desenvolvimento",
     featured: true,
+    href: "#participe",
   },
   {
     id: "hudi-pages",
@@ -90,6 +140,7 @@ export const projects: readonly Project[] = [
     location: "Bonito-MS",
     status: "Ativo",
     featured: false,
+    href: "#participe",
   },
   {
     id: "meu-bloquinho",
@@ -101,6 +152,7 @@ export const projects: readonly Project[] = [
     location: "Belo Horizonte-MG",
     status: "Ativo",
     featured: false,
+    href: "#participe",
   },
   {
     id: "coletivo-cuida",
@@ -112,5 +164,6 @@ export const projects: readonly Project[] = [
     location: "Rede Inspira",
     status: "Em desenvolvimento",
     featured: false,
+    href: "#participe",
   },
 ] as const;

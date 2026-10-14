@@ -1,6 +1,5 @@
 .section {
   padding: var(--section-space) 0;
-  overflow: hidden;
   background: var(--color-white);
 }
 .grid {
@@ -16,12 +15,16 @@
 }
 
 .content h2 {
+  min-width: 0;
   max-width: 9ch;
   margin-top: 0.75rem;
   font-family: var(--font-display);
-  font-size: 3.2rem;
+  font-size: 2.25rem;
   font-weight: 800;
   line-height: 0.95;
+  overflow-wrap: break-word;
+  text-wrap: balance;
+  word-break: normal;
 }
 
 .content > p:not(.lead):not(.eyebrow) {
@@ -53,16 +56,12 @@
   padding: 0 2rem 3rem 0;
 }
 
-.mainPhoto,
-.detailPhoto {
-  display: block;
-  border: 2px solid var(--color-ink);
-  object-fit: cover;
-}
-
 .mainPhoto {
+  display: block;
   width: 90%;
+  border: 2px solid var(--color-ink);
   min-height: 29rem;
+  object-fit: cover;
   box-shadow: 12px 12px 0 var(--color-mustard);
 }
 
@@ -72,6 +71,9 @@
   bottom: 0;
   width: 45%;
   height: 15rem;
+  border: 2px solid var(--color-ink);
+  background: var(--color-white);
+  object-fit: cover;
   box-shadow: 8px 8px 0 var(--color-orange);
 }
 
@@ -110,5 +112,9 @@
 
   .detailPhoto {
     height: 11rem;
+  }
+
+  .gallery figcaption {
+    right: 0.25rem;
   }
 }

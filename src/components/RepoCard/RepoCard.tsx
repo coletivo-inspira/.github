@@ -1,4 +1,4 @@
-import { formatGitHubDate } from "@/lib/github";
+import { formatGitHubDate, getRepoDescription } from "@/lib/github";
 import type { GitHubRepo, RepoMetadata } from "@/types/github";
 import styles from "./RepoCard.module.css";
 
@@ -20,9 +20,7 @@ export function RepoCard({ repo, metadata, onSelect }: RepoCardProps) {
           <h3>{repo.name}</h3>
           {repo.language ? <span>{repo.language}</span> : null}
         </div>
-        <p className={styles.description}>
-          {repo.description || "Este repositório ainda não possui descrição."}
-        </p>
+        <p className={styles.description}>{getRepoDescription(repo)}</p>
         <dl className={styles.meta}>
           <div>
             <dt>Contribuidores</dt>

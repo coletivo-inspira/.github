@@ -11,7 +11,9 @@ import styles from "./SectionCommunity.module.css";
 export function SectionCommunity() {
   const { repos, metadata, loading, error, rateLimited } = useGitHubRepos();
   const [selectedRepo, setSelectedRepo] = useState<GitHubRepo | null>(null);
+  const [showAllRepos, setShowAllRepos] = useState(false);
   const handleCloseModal = useCallback(() => setSelectedRepo(null), []);
+  const visibleRepos = showAllRepos ? repos : repos.slice(0, 3);
 
   return (
     <section id="comunidade" className={styles.section} aria-labelledby="community-title">
@@ -52,7 +54,9 @@ export function SectionCommunity() {
 
         {!loading && !error && !rateLimited && repos.length > 0 ? (
           <p className={styles.counter} role="status" aria-live="polite">
-            {repos.length} repositórios encontrados
+            {showAllRepos
+              ? `${repos.length} repositórios exibidos`
+              : `${Math.min(repos.length, 3)} destaques da comunidade`}
           </p>
         ) : null}
 
@@ -62,11 +66,25 @@ export function SectionCommunity() {
 
         {!error && !rateLimited ? (
           <RepoGrid
-            repos={repos}
+            repos={visibleRepos}
             metadata={metadata}
             loading={loading}
             onSelectRepo={setSelectedRepo}
           />
+        ) : null}
+
+        {!loading && !error && !rateLimited && repos.length > 3 ? (
+          <div className={styles.moreAction}>
+            <button
+              type="button"
+              className="button buttonPrimary"
+              aria-expanded={showAllRepos}
+              onClick={() => setShowAllRepos((current) => !current)}
+            >
+              {showAllRepos ? "Mostrar apenas destaques" : `Ver todos (${repos.length})`}
+            </button>
+            <a href={hubConfig.githubUrl}>Visitar organização no GitHub</a>
+          </div>
         ) : null}
       </div>
 

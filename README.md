@@ -106,3 +106,16 @@ Este projeto foi configurado para **Static Export** via Next.js (`output: "expor
 4. **Publicação:**
    - Faça o commit desse workflow sugerido.
    - Sempre que você fizer push para a branch `main`, o GitHub Actions disparará um build automático e atualizará o site online!
+
+## ChatGPT Sites
+
+Este mesmo código também está vinculado ao projeto **Coletivo Inspira** no
+ChatGPT Sites. O vínculo oficial fica em `.openai/hosting.json`, enquanto os
+scripts `sites:dev`, `sites:build` e `sites:start` geram e executam a cópia
+compatível com o ambiente do Sites.
+
+O GitHub continua sendo a fonte principal do projeto e o fluxo do GitHub Pages
+permanece inalterado. A cada mudança na branch principal, o GitHub Actions também
+gera e guarda por 14 dias uma cópia compatível com Sites. A etapa final de salvar
+e publicar uma nova versão continua sendo feita pelo ChatGPT/Codex, pois o Sites
+ainda não oferece um gatilho nativo de publicação para este repositório.

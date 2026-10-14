@@ -5,30 +5,23 @@ import styles from "./Hero.module.css";
 export function Hero() {
   return (
     <section id="inicio" className={styles.hero} aria-labelledby="hero-title">
-      <Image
-        src="/image/image1.png"
-        alt="Integrantes e encontros do Coletivo Inspira"
-        fill
-        sizes="100vw"
-        className={styles.background}
-        priority
-      />
-      <div className={styles.colorBlock} aria-hidden="true" />
       <div className={styles.currentLine} aria-hidden="true">
         <span />
       </div>
 
       <div className={styles.container}>
         <div className={styles.content}>
-          <p className={styles.eyebrow}>{hubConfig.location}</p>
-          <h1 id="hero-title">Coletivo Inspira</h1>
+          <p className={styles.eyebrow}>
+            {hubConfig.name} · {hubConfig.location}
+          </p>
+          <h1 id="hero-title">Cultura, cuidado e tecnologia para movimentar territórios.</h1>
           <p className={styles.lead}>
-            Cultura, tecnologia e impacto social para abrir caminhos e movimentar
-            territórios.
+            Conectamos pessoas, ideias e projetos para abrir caminhos de impacto social,
+            presença digital e cultura viva.
           </p>
           <p className={styles.text}>
-            Criamos experiências, produtos digitais e redes de cuidado com quem
-            acredita que desenvolvimento também se faz em coletivo.
+            Criamos redes de cuidado, experiências e produtos digitais com quem acredita
+            que desenvolvimento se faz junto.
           </p>
           <div className={styles.actions}>
             <a href={hubConfig.hudiPagesUrl} className="button buttonPrimary">
@@ -39,6 +32,36 @@ export function Hero() {
             </a>
           </div>
         </div>
+
+        <figure className={styles.visual}>
+          <Image
+            src="/image/logo/logo.png"
+            alt="Símbolo do Coletivo Inspira"
+            width={400}
+            height={400}
+            sizes="(max-width: 760px) 58vw, 20rem"
+            className={styles.brandTile}
+            priority
+          />
+          <Image
+            src="/image/image3.png"
+            alt="Colagem de encontros e atividades do Coletivo Inspira"
+            width={239}
+            height={289}
+            sizes="(max-width: 760px) 45vw, 17rem"
+            className={styles.photoCommunity}
+            priority
+          />
+          <Image
+            src="/image/image1.png"
+            alt="Amigos de infância que fazem parte da história do coletivo"
+            width={260}
+            height={289}
+            sizes="(max-width: 760px) 35vw, 13rem"
+            className={styles.photoOrigins}
+          />
+          <figcaption>Bonito-MS · uma história feita em coletivo</figcaption>
+        </figure>
       </div>
     </section>
   );

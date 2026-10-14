@@ -5,6 +5,18 @@ export const GITHUB_ORG = "coletivo-inspira";
 export const GITHUB_ORG_REPOS_API =
   `https://api.github.com/orgs/${GITHUB_ORG}/repos?per_page=100` as const;
 
+const FALLBACK_REPO_DESCRIPTIONS: Readonly<Record<string, string>> = {
+  ".github": "Portal institucional e vitrine digital do Coletivo Inspira.",
+  "brand-book":
+    "Repositório central do Brand Book e do sistema visual do Coletivo Inspira.",
+  "hudi-pg": "Editor para criar e publicar smartfólios gratuitos no ecossistema Inspira.",
+  "hudi-lp": "Landing page do ecossistema HUDI Pages.",
+  "hudi-boutique": "Experimentos de produtos digitais e presença online da rede Inspira.",
+  lino_public: "Experimentos públicos do LINO para automação e apoio a projetos locais.",
+  inspiratoken: "Experimento aberto do ecossistema tecnológico do Coletivo Inspira.",
+  "nathalia-verri": "Smartfólio publicado no ecossistema Inspira.",
+};
+
 export function contributorsApiUrl(repoName: string): string {
   return `https://api.github.com/repos/${GITHUB_ORG}/${repoName}/contributors?per_page=1`;
 }
@@ -26,7 +38,11 @@ export function formatGitHubDate(isoDate: string | null | undefined): string {
 export function getPortfolioUrl(repo: Pick<GitHubRepo, "homepage" | "has_pages" | "name">): string | null {
   if (repo.homepage?.trim()) {
     try {
-      return new URL(repo.homepage).toString();
+      const parsedUrl = new URL(repo.homepage);
+      if (parsedUrl.protocol === "http:" && parsedUrl.hostname !== "localhost") {
+        parsedUrl.protocol = "https:";
+      }
+      return parsedUrl.toString();
     } catch {
       // Invalid homepage values are ignored in favor of the GitHub Pages fallback.
     }
@@ -37,6 +53,18 @@ export function getPortfolioUrl(repo: Pick<GitHubRepo, "homepage" | "has_pages" 
   }
 
   return null;
+}
+
+export function getRepoDescription(repo: Pick<GitHubRepo, "name" | "description">): string {
+  const description = repo.description?.trim();
+  if (description) {
+    return description.replace(/^epositório\b/i, "Repositório");
+  }
+
+  return (
+    FALLBACK_REPO_DESCRIPTIONS[repo.name] ??
+    "Projeto aberto que faz parte do ecossistema Coletivo Inspira."
+  );
 }
 
 /**
